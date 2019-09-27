@@ -1,0 +1,29 @@
+{
+  "name": "app3-angularjs",
+  "version": "1.0.0",
+  "description": "a angularjs demo",
+  "scripts": {
+    "start": "webpack-dev-server --port 9003",
+    "build": "webpack -p --progress"
+  },
+  "author": "houyw",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "clean-webpack-plugin": "^0.1.19",
+    "webpack": "^4.12.1",
+    "webpack-cli": "^3.0.8",
+    "webpack-dev-server": "^3.1.4"
+  },
+  "dependencies": {
+    "@uirouter/angularjs": "^1.0.22",
+    "angular": "^1.6.9",
+    "html-loader": "^0.5.5",
+    "ng-redux": "^4.4.0",
+    "redux": "^4.0.4",
+    "single-spa-angular1": "^2.7.0"
+  }
+}

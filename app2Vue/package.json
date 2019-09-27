@@ -1,0 +1,52 @@
+{
+  "name": "app4vue",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "watch:standalone": "vue-cli-service serve",
+    "build:standalone": "vue-cli-service build",
+    "start": "webpack-dev-server --port 9002",
+    "build:portal": "webpack -p --progress",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "element-ui": "^2.11.1",
+    "file-loader": "^4.2.0",
+    "redux": "^4.0.4",
+    "single-spa-vue": "^1.1.0",
+    "vue": "^2.6.10",
+    "vue-loader": "^15.7.1",
+    "vuejs-redux": "^2.4.1"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.0.0-beta.15",
+    "@vue/cli-plugin-eslint": "^3.0.0-beta.15",
+    "@vue/cli-service": "^3.0.0-beta.15",
+    "vue-template-compiler": "^2.6.10",
+    "webpack-cli": "^3.0.8"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "rules": {},
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
+}
