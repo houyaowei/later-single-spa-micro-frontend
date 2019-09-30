@@ -13,15 +13,19 @@
       {
         "imports": {
           "@portal": "http://127.0.0.1:8000/portal.js",
-          "@sub/reactApp" : "http://127.0.0.1:9001/entry.js",
-          "@sub/vueApp" : "http://127.0.0.1:9002/singleSpaEntry.js"
+          "@portal/reactApp" : "http://127.0.0.1:9001/entry.js",
+          "@portal/vueApp" : "http://127.0.0.1:9002/entry.js",
+          "@portal/a1App" : "http://127.0.0.1:9003/entry.js"
         }
       }
     </script>
-    <script type="text/javascript" src="/dist/libs/system.js"></script>
-    <script type="text/javascript" src="/dist/libs/amd.js"></script>
-    <script type="text/javascript" src="/dist/libs/named-exports.js"></script>
-    <script type="text/javascript" src="/dist/libs/use-default.js"></script>
+    <script type="text/javascript" src="/libs/systemjs/system.js"></script>
+    <script type="text/javascript" src="/libs/systemjs/amd.js"></script>
+    <script
+      type="text/javascript"
+      src="/libs/systemjs/named-exports.js"
+    ></script>
+    <script type="text/javascript" src="/libs/systemjs/use-default.js"></script>
   </head>
 
   <body>
@@ -30,7 +34,7 @@
 
     <div class="navbar">
       <ul>
-        <a href="/reactApp">
+        <a href="javascript:void(0)" onclick="pushToState('reactApp')">
           <li>
             App 1 (React)
           </li>
@@ -53,9 +57,12 @@
         </a>
       </ul>
     </div>
+    <!-- load base libs -->
+    <script src="http://127.0.0.1:9010/base.js"></script>
     <script>
       // load the application
-      System.import("@sub/reactApp");
+      System.import("vue");
+      System.import("@portal/reactApp");
     </script>
   </body>
 </html>

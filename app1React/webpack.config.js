@@ -6,7 +6,7 @@ module.exports = {
   devtool: "eval-source-map",
 
   entry: {
-    entry: "./src/entry.js",
+    entry: "./src/entry.js"
     // store: "./src/store.js"
   },
 
@@ -27,6 +27,9 @@ module.exports = {
       "Access-Control-Allow-Origin": "*"
     }
   },
+  externals: [
+    /^@portal\/*$/, /^react$/, /^react-dom$/
+  ],
   module: {
     rules: [
       {
@@ -55,7 +58,7 @@ module.exports = {
   },
   plugins: [new CopyWebpackPlugin([
       {
-        from: path.resolve(__dirname, 'src/entry.js'),
+        from: path.resolve(__dirname, "src/entry.js"),
         to: "/"
       }
     ])]

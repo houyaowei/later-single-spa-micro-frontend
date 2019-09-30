@@ -6,16 +6,12 @@ export class GlobalEventdistributor {
     this.stores = [];
   }
   register(store) {
-    this
-      .stores
-      .push(store);
+    this.stores.push(store);
   }
   dispatch(event) {
-    this
-      .stores
-      .forEach(s => {
-        // console.log(s);
-        s.dispatch(event);
-      });
+    this.stores.forEach(s => {
+      // console.log(s);
+      s.dispatch(event);
+    });
   }
 }

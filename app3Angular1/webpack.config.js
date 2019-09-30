@@ -1,5 +1,6 @@
 const path = require("path");
 const ContextReplacementPlugin = require("webpack/lib/ContextReplacementPlugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   entry: {
@@ -9,11 +10,21 @@ module.exports = {
   output: {
     filename: "[name].js",
     path: path.resolve(__dirname, "release"),
-    libraryTarget: "umd",
+    libraryTarget: "amd",
     library: "a1App"
+  },
+  devServer: {
+    headers: {
+      "Access-Control-Allow-Origin": "*"
+    }
   },
   module: {
     rules: [
+      {
+        parser: {
+          System: false
+        }
+      },
       {
         test: /\.js?$/,
         exclude: [path.resolve(__dirname, "node_modules")],
@@ -32,5 +43,11 @@ module.exports = {
   },
   devtool: "eval-source-map",
   externals: [],
-  plugins: []
+  plugins: [
+    new CopyWebpackPlugin([
+      {
+        from: "src/singleSpaEntry.js"
+      }
+    ])
+  ]
 };

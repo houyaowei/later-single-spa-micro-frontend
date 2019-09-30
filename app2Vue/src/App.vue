@@ -1,11 +1,12 @@
 <template>
   <div id="app4">
-    <img src="./assets/logo.png" />
+    <!-- <img src="./assets/logo.png" />
     <Provider :mapStateToProps="mapStateToProps" :store="localStore">
       <template #default="{count}">
         <Counter :count="count" :store="localStore" />
       </template>
-    </Provider>
+    </Provider>-->
+    <span>vue app</span>
   </div>
 </template>
 

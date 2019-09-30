@@ -20,7 +20,7 @@ export function mount(props) {
   // console.log(props.customProps.store);
   window.store = props.globalEventDistributor;
   window.globalEventDistributor = props.globalEventDistributor;
-  console.log(props.globalEventDistributor);
+  // console.log(props.globalEventDistributor);
   return vueLifecycles.mount(props);
 }
 

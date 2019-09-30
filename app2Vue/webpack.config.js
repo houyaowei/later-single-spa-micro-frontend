@@ -1,5 +1,6 @@
 const path = require("path");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   entry: {
@@ -9,12 +10,21 @@ module.exports = {
   output: {
     filename: "[name].js",
     path: path.resolve(__dirname, "release"),
-    libraryTarget: "umd",
+    libraryTarget: "amd",
     library: "vueApp"
+  },
+  devServer: {
+    headers: {
+      "Access-Control-Allow-Origin": "*"
+    }
   },
   module: {
     rules: [
       {
+        parser: {
+          System: false
+        }
+      }, {
         test: /\.vue$/,
         loader: "vue-loader",
         options: {
@@ -43,9 +53,7 @@ module.exports = {
     ]
   },
   resolve: {
-    alias: {
-      vue$: "vue/dist/vue.esm.js"
-    },
+    // alias: {   vue$: "vue/dist/vue.esm.js" },
     extensions: [
       ".js", ".vue"
     ],
@@ -53,6 +61,13 @@ module.exports = {
   },
   mode: "development",
   devtool: "none",
-  externals: [],
-  plugins: [new VueLoaderPlugin()]
+  // externals: [/^vue$/],
+  plugins: [
+    new VueLoaderPlugin(),
+    new CopyWebpackPlugin([
+      {
+        from: "src/singleSpaEntry.js"
+      }
+    ])
+  ]
 };

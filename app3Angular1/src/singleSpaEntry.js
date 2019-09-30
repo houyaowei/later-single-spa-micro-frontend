@@ -13,18 +13,10 @@ const angularLifecycles = singleSpaAngular1({
   // template: "angular-js"
 });
 
-export function bootstrap(props) {
-  return angularLifecycles.bootstrap(props);
-}
+export const bootstrap = [angularLifecycles.bootstrap];
+export const mount = [angularLifecycles.mount];
 
-export function mount(props) {
-  window.globalEventDistributor = props.globalEventDistributor;
-  return angularLifecycles.mount(props);
-}
-
-export function unmount(props) {
-  return angularLifecycles.unmount(props);
-}
+export const unmount = [angularLifecycles.unmount];
 
 function domElementGetter() {
   let el = document.getElementById("app3");
