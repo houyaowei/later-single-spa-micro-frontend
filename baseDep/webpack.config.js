@@ -9,7 +9,7 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     chunkFilename: "[name].js"
   },
-  mode: "development",
+  mode: "production",
   devServer: {
     contentBase: __dirname + "/dist",
     headers: {
@@ -23,14 +23,19 @@ module.exports = {
     modules: [__dirname, "node_modules"]
   },
   devtool: "sourcemap",
-  plugins: [
-    // new CleanWebpackPlugin(["dist"]),
-    new CopyWebpackPlugin([{ from: path.resolve(__dirname, "base.js") }])
-  ],
+  plugins: [// new CleanWebpackPlugin(["dist"]),
+    new CopyWebpackPlugin([
+      {
+        from: path.resolve(__dirname, "base.js")
+      }
+    ])],
   module: {
     rules: [
-      { parser: { System: false } },
       {
+        parser: {
+          System: false
+        }
+      }, {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {

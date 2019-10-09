@@ -13,27 +13,26 @@ module.exports = {
   output: {
     filename: "portal.js",
     library: "portal",
-    // libraryTarget: "amd",
+    libraryTarget: "amd",
     path: path.resolve(__dirname, "dist")
   },
   mode: "development",
   devtool: "cheap-module-eval-source-map",
   module: {
-    unknownContextCritical: false,
     rules: [
       {
         parser: {
           System: false
         }
-      },
-      {
+      }, {
         test: /\.js?$/,
         exclude: [path.resolve(__dirname, "node_modules")],
         loader: "babel-loader"
-      },
-      {
+      }, {
         test: /\.css/,
-        use: ["style-loader", "css-loader"],
+        use: [
+          "style-loader", "css-loader"
+        ],
         exclude: /node_modules/
       }
     ]
@@ -47,28 +46,27 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(["dist"]),
-    new HTMLWebpachPlugin({ title: "micro-frontend", template: "./src/index.html" }),
+    new HTMLWebpachPlugin({title: "micro-frontend", template: "./src/index.html"}),
     new CopyWebpackPlugin([
       {
         from: path.resolve(__dirname, "src/index.html"),
         from: path.resolve(__dirname, "src/style.css")
-      },
-      {
+      }, {
         from: "src/assets/libs",
         to: "libs/",
         force: true
-      },
-      {
+      }, {
         from: "src/portal.js"
       }
     ])
   ],
-  externals: [],
+
   devServer: {
     contentBase: __dirname + "/dist",
     headers: {
       "Access-Control-Allow-Origin": "*"
     },
     proxy: {}
-  }
+  },
+  externals: [/^single-spa$/]
 };

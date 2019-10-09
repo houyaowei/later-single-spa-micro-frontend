@@ -9,6 +9,17 @@
         window.history.pushState({}, "title", target);
       }
     </script>
+  </head>
+
+  <body>
+    <script type="text/javascript" src="/libs/systemjs/system.js"></script>
+    <script type="text/javascript" src="/libs/systemjs/amd.js"></script>
+    <script
+      type="text/javascript"
+      src="/libs/systemjs/named-exports.js"
+    ></script>
+    <script type="text/javascript" src="/libs/systemjs/use-default.js"></script>
+
     <script type="systemjs-importmap">
       {
         "imports": {
@@ -19,16 +30,7 @@
         }
       }
     </script>
-    <script type="text/javascript" src="/libs/systemjs/system.js"></script>
-    <script type="text/javascript" src="/libs/systemjs/amd.js"></script>
-    <script
-      type="text/javascript"
-      src="/libs/systemjs/named-exports.js"
-    ></script>
-    <script type="text/javascript" src="/libs/systemjs/use-default.js"></script>
-  </head>
 
-  <body>
     <!-- Static navbar -->
     <link rel="stylesheet" href="./style.css" />
 
@@ -57,12 +59,10 @@
         </a>
       </ul>
     </div>
-    <!-- load base libs -->
     <script src="http://127.0.0.1:9010/base.js"></script>
     <script>
       // load the application
-      System.import("vue");
-      System.import("@portal/reactApp");
+      System.import("@portal");
     </script>
   </body>
 </html>

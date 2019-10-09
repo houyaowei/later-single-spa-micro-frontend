@@ -13,16 +13,10 @@ module.exports = {
   output: {
     filename: "[name].js",
     path: path.resolve(__dirname, "release"),
-    libraryTarget: "amd",
-    library: "reactApp"
+    library: "reactApp",
+    libraryTarget: "amd"
   },
   devServer: {
-    contentBase: __dirname + "/dist",
-    historyApiFallback: true,
-    watchOptions: {
-      aggregateTimeout: 300,
-      poll: 1000
-    },
     headers: {
       "Access-Control-Allow-Origin": "*"
     }
