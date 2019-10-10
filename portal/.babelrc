@@ -1,21 +1,21 @@
 {
-  "presets": [
-    [
-      "env",
-      {
-        "targets": {
-          "browsers": ["last 2 versions"]
-        }
-      }
-    ]
-  ],
-  "plugins": [
-    [
-      "transform-runtime",
-      {
-        "polyfill": false,
-        "regenerator": true
-      }
-    ]
-  ]
+	"presets": [
+		[
+			"@babel/preset-env",
+			{
+				"targets": "chrome>38, firefox>56",
+				"useBuiltIns": "entry",
+				"corejs": 3
+			}
+		]
+	],
+	"plugins": [
+		[
+			"@babel/plugin-proposal-decorators",
+			{
+				"legacy": true
+			}
+		],
+		"@babel/plugin-proposal-class-properties"
+	]
 }
