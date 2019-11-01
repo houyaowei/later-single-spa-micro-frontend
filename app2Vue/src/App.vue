@@ -6,7 +6,12 @@
         <Counter :count="count" :store="localStore" />
       </template>
     </Provider>-->
-    <span>vue app</span>
+     <ul style="{width:100px}">
+        <li><a href="#/name">name</a></li>
+        <li><a href="#/age">age</a></li>
+        <li>address</li>
+     </ul>
+
   </div>
 </template>
 
