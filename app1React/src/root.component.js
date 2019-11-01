@@ -26,7 +26,12 @@ export default class Root extends React.Component {
       <div style={{
         marginTop: 60
       }}>
-        <span>react App</span>
+        <ul>
+        <li><a href="#/name">name</a></li>
+        <li><a href="#/age">age</a></li>
+        <li>address</li>
+        </ul>
+
       </div>
     );
   }
