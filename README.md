@@ -6,6 +6,7 @@ this repo is based on the latest systemjs@6.1.1
 1、install nodejs
 
 2、cd to baseDep repo
+
 > npm i && yarn start
 
 3、cd to other project
@@ -16,3 +17,4 @@ this repo is based on the latest systemjs@6.1.1
 
 
 ### Note:
+
